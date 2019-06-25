@@ -1,0 +1,153 @@
+enum Sex {
+	FEMALE, MALE
+}
+
+enum MaritalStatus{
+	SINGLE, MARRIED, DIVORCE
+}
+
+entity Province{
+	name String
+}
+
+entity City {
+	name String,
+//    province Province
+}
+
+entity District {
+	name String,
+//    city City
+}
+
+entity Contact {
+	name String,
+    sex Sex,
+    birthDate Instant,
+    maritalStatus MaritalStatus,
+    address String,
+//    district District,
+    postalCode String,
+    phone1 String,
+    phone2 String,
+    phone3 String,
+    email String,
+    website String,
+    twitter String,
+    facebook String,
+    instagram String,
+}
+
+entity LeadStatus {
+	name String
+}
+
+entity Lead {
+	//leadStatus LeadStatus,
+    //contact Contact,
+    //referencedBy Lead,
+    //source Source,
+    sourceId Long,
+    notes String
+}
+
+entity Agent {
+	username String,
+    name String,
+    password String,
+    pp String,
+    position String,
+    //leader Agent
+}
+
+entity History {
+	remark String,
+    datetime Instant,
+    //agent Agent,
+    //lead Lead
+}
+
+
+entity ActivityType{
+	name String
+}
+
+entity Activity{
+  //type ActivityType,
+  //lead Lead,
+  notes String,
+  outcome String,
+  //agent Agent
+}
+
+entity Assignment{
+  title String,
+  dueDate Instant,
+  description String,
+  //activityType ActivityType,
+  target String,
+  //assignedTo Agent,
+  //lead Lead,
+  isCompleted Boolean,
+  dateCompleted Instant
+}
+
+entity Notification{
+	title String,
+    message String,
+    read Boolean,
+    //agent Agent
+}
+
+entity Shortcut{
+	name String,
+    //type ActivityType
+}
+
+enum SourceType{
+	AGENT, COMPANY, ORGANIZATION
+}
+
+entity Source{
+	name String,
+    type SourceType
+}
+
+relationship OneToOne {
+	Lead{contact} to Contact
+}
+
+// defining multiple OneToMany relationships with comments
+relationship ManyToOne {
+	Lead{status} to LeadStatus,
+    Lead{source} to Source,
+    Lead{district} to District,
+    Lead{referencedBy} to Lead,
+    Agent{leader} to Agent
+    District{city} to City,
+    City{province} to Province,
+    History{agent} to Agent,
+    History{lead} to Lead,
+    Activity{type} to ActivityType,
+    Activity{lead} to Lead,
+    Activity{agent} to Agent,
+    Assignment{activityType} to ActivityType,
+    Assignment{lead} to Lead,
+    Assignment{assignedTo} to Agent,
+    Notification{agent} to Agent,
+    Shortcut{type} to ActivityType
+    
+}
+
+
+// Set pagination options
+paginate Contact, Lead, Agent, Assignment, Activity, Source with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl //except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
