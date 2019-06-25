@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "id.rfnaj.lms.admin",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.1.2",
+    "applicationType": "monolith",
+    "baseName": "LMSAdmin",
+    "packageName": "id.rfnaj.lms.admin",
+    "packageFolder": "id/rfnaj/lms/admin",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "ZTI3NDY5MGE2MGJkMGZiODY1MmUzNjhlZmRhYzNiNDllOTRkZjVkYjJiMDY1NTc1MzQ1Y2Y1ZDQxMWUzODNiNjJhZjQ4MzAxMThjYzQzNDU3MzVhOGFlMDU3MmRjOGQ3NzRkOWZmZmE5ZjQxN2Q5ODNmNGQyYjQ5YzMzYTBkODI=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "lumen",
+    "clientThemeVariant": "primary",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "in"]
+  }
+}
